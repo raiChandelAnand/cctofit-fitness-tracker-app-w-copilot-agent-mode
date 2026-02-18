@@ -25,8 +25,6 @@ SECRET_KEY = 'django-insecure-^il5zyh#*)%hd3rm()8(+cw_4wp1@gn61fp+8nc6*(glu4$77f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-# Allow all hosts
 ALLOWED_HOSTS = ['*']
 
 
@@ -39,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'octofit_tracker',
     'rest_framework',
     'djongo',
     'corsheaders',
-    'octofit_tracker',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +83,8 @@ DATABASES = {
         'NAME': 'octofit_db',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb://localhost:27017/',
+            'host': 'localhost',
+            'port': 27017,
             'username': '',
             'password': '',
             'authSource': 'admin',
@@ -93,15 +92,11 @@ DATABASES = {
         },
     }
 }
-
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = ['*']
-
-# Custom user model
-AUTH_USER_MODEL = 'octofit_tracker.User'
 
 
 # Password validation
